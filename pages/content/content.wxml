@@ -1,9 +1,9 @@
-<view class="container">
+<view class="container content_style" style="height:{{page_height}}px;">
   <view class="poem_view">
     <block wx:for="{{poem_sentences}}" wx:for-index="poem_index" wx:for-item="poem_sentence">
-       <view class="poem_sentence">
+       <view class="poem_view_column">
         <block wx:for="{{poem_sentence}}">
-          <text class="word{{index}}">{{item}}</text>
+          <text class="{{poem_class[poem_index][index]==1?'one fadein':'one'}}" id="word{{poem_index}}{{index}}">{{item}}</text>
         </block>
       </view> 
     </block>

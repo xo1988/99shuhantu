@@ -2,45 +2,92 @@ const app = getApp()
 
 Page({
   data:{
-    // 起源日
-    origin_date:new Date(2017,11,22),
-    // poem:[
-    //   "一九冬至一阳生，\n万物姿始渐勾萌，\n莫道隆冬无好景，\n山川草木玉装成。",
-    //   "二九七日是小寒，\n田间休息掩柴关，\n室家共享盈宁福，\n预计来年春不闲。",
-    //   "三九严寒春结冰，\n罢钩归来蓑笠翁，\n虽无双鲤换新酒，\n且喜床头樽无空。",
-    //   "四九雪铺满地平，\n朔风凛冽起新晴，\n朱堤公子休嫌冷，\n山有樵夫赤脚行。",
-    //   "五九元旦一岁周，\n茗香椒酒答神庥，\n太平天子朝元日，\n万国衣冠拜冕旒。",
-    //   "六九上苑佳景多，\n满城灯火映星河，\n寻常巷陌皆车马，\n到处笙歌表太和。",
-    //   "七九之数六十三，\n堤边杨柳俗含烟，\n红梅几点传春讯，\n不待东风二月天。",
-    //   "八九风和日迟迟，\n名花先发向阳枝，\n即今河畔冰开日，\n又是渔翁垂钓时。",
-    //   "九九鸟啼上苑东，\n青青草色含烟蒙，\n老农教子耕宜早，\n二月中天起卧龙。"
-    // ],
-    poem:[
-      [[["一"], ["九"], ["冬"], ["至"], ["一"], ["阳"], ["生"], ["，"]], [["万"], ["物"], ["姿"], ["始"], ["渐"], ["勾"], ["萌"], ["，"]], [["莫"], ["道"], ["隆"], ["冬"], ["无"], ["好"], ["景"], ["，"]], [["山"], ["川"], ["草"], ["木"], ["玉"], ["装"], ["成"], ["。"]]],
-      [[["二"], ["九"], ["七"], ["日"], ["是"], ["小"], ["寒"], ["，"]], [["田"], ["间"], ["休"], ["息"], ["掩"], ["柴"], ["关"], ["，"]], [["室"], ["家"], ["共"], ["享"], ["盈"], ["宁"], ["福"], ["，"]], [["预"], ["计"], ["来"], ["年"], ["春"], ["不"], ["闲"], ["。"]]],
-      [[["三"], ["九"], ["严"], ["寒"], ["春"], ["结"], ["冰"], ["，"]], [["罢"], ["钩"], ["归"], ["来"], ["蓑"], ["笠"], ["翁"], ["，"]], [["虽"], ["无"], ["双"], ["鲤"], ["换"], ["新"], ["酒"], ["，"]], [["且"], ["喜"], ["床"], ["头"], ["樽"], ["无"], ["空"], ["。"]]],
-      [[["四"], ["九"], ["雪"], ["铺"], ["满"], ["地"], ["平"], ["，"]], [["朔"], ["风"], ["凛"], ["冽"], ["起"], ["新"], ["晴"], ["，"]], [["朱"], ["堤"], ["公"], ["子"], ["休"], ["嫌"], ["冷"], ["，"]], [["山"], ["有"], ["樵"], ["夫"], ["赤"], ["脚"], ["行"], ["。"]]],
-      [[["五"], ["九"], ["元"], ["旦"], ["一"], ["岁"], ["周"], ["，"]], [["茗"], ["香"], ["椒"], ["酒"], ["答"], ["神"], ["庥"], ["，"]], [["太"], ["平"], ["天"], ["子"], ["朝"], ["元"], ["日"], ["，"]], [["万"], ["国"], ["衣"], ["冠"], ["拜"], ["冕"], ["旒"], ["。"]]],
-      [[["六"], ["九"], ["上"], ["苑"], ["佳"], ["景"], ["多"], ["，"]], [["满"], ["城"], ["灯"], ["火"], ["映"], ["星"], ["河"], ["，"]], [["寻"], ["常"], ["巷"], ["陌"], ["皆"], ["车"], ["马"], ["，"]], [["到"], ["处"], ["笙"], ["歌"], ["表"], ["太"], ["和"], ["。"]]],
-      [[["七"], ["九"], ["之"], ["数"], ["六"], ["十"], ["三"], ["，"]], [["堤"], ["边"], ["杨"], ["柳"], ["俗"], ["含"], ["烟"], ["，"]], [["红"], ["梅"], ["几"], ["点"], ["传"], ["春"], ["讯"], ["，"]], [["不"], ["待"], ["东"], ["风"], ["二"], ["月"], ["天"], ["。"]]],
-      [[["八"], ["九"], ["风"], ["和"], ["日"], ["迟"], ["迟"], ["，"]], [["名"], ["花"], ["先"], ["发"], ["向"], ["阳"], ["枝"], ["，"]], [["即"], ["今"], ["河"], ["畔"], ["冰"], ["开"], ["日"], ["，"]], [["又"], ["是"], ["渔"], ["翁"], ["垂"], ["钓"], ["时"], ["。"]]],
-      [[["九"], ["九"], ["鸟"], ["啼"], ["上"], ["苑"], ["东"], ["，"]], [["青"], ["青"], ["草"], ["色"], ["含"], ["烟"], ["蒙"], ["，"]], [["老"], ["农"], ["教"], ["子"], ["耕"], ["宜"], ["早"], ["，"]], [["二"], ["月"], ["中"], ["天"], ["起"], ["卧"], ["龙"], ["。"]]]
+    ori_poem:[
+      "一九冬至一阳生万物资始渐沟萌莫道隆冬无好景山川草木玉妆成",
+      "二九七日是小寒田间休息掩柴关室家共享盈宁福预计来年春不闲",
+      "三九严寒春结冰罢钩归来蓑笠翁虽无双鲤换新酒且喜床头樽不空",
+      "四九雪铺满地平朔风凛冽起新晴朱堤公子休嫌冷山有樵夫赤足行",
+      "五九元旦一岁周茗香椒酒答神麻太平天子朝元日万国衣冠拜冕梳",
+      "六九上苑佳景多满城灯火映星河寻常巷陌皆车马到处笙歌表太和",
+      "七九之数六十三堤边杨柳欲含烟红梅几点传春讯不待东风二月天",
+      "八九风和日迟迟名花先发向阳枝即今河畔冰开日又是渔翁垂钓时",
+      "九九莺啼上苑东青青草色含烟蒙老农教子宜耕早二月中天起卧龙"
     ],
+    poem:[],
     poem_sentences:"",
+    poem_row_num:7,                 // 诗每行多少个字
+    poem_class:[],                  // css样式class
+    page_height: 0,
+    page_width:0,
+    num_map: ['一', '二', '三', '四', '五', '六', '七', '八', '九']
   },
   onLoad: function() {
     var self = this;
+    // 获取屏幕大小，根据屏幕高度设置页面大小
+    self.setData({
+      page_height: app.globalData.system_info.windowHeight,
+      page_width: app.globalData.system_info.windowWidth
+    })
+    // 画canvas背景
+    const ctx = wx.createCanvasContext('front_window')
+    ctx.drawImage('../../images/canvas_bg.jpg', 0, 0, app.globalData.system_info.windowWidth, app.globalData.system_info.windowHeight)
+    ctx.draw()
     // 获取距离立冬首日的偏移量
     var date_now = new Date();
-    var lidong = new Date(2017, 11, 18);
+    var lidong = new Date(2017, 11, 22);
     var offset = (date_now.getTime() - lidong.getTime()) / 24 / 60 / 60 / 1000;
     var total_date = Math.floor(offset);
-    var round_date = Math.floor(total_date/7);
-    var offset_date = total_date%7;
-    // 设置要显示的诗句
-    console.log(self.data.poem[round_date])
-    self.setData({
-      poem_sentences:self.data.poem[round_date]
+    var round_date = Math.floor(total_date/9);
+    var offset_date = total_date%9;
+    wx.setNavigationBarTitle({
+      title: self.data.num_map[round_date] + '九第' + self.data.num_map[offset_date]+'天'
     })
+    // 设置要显示的诗句
+    for (var i = 0; i < self.data.ori_poem.length; i++) {
+      self.data.poem.push([]);
+      for ( var j = 0; j < self.data.ori_poem[i].length; j++) {
+        if (j % self.data.poem_row_num == 0) {
+          self.data.poem[i].push([]);
+        }
+        self.data.poem[i][Math.floor(j / self.data.poem_row_num)].push(self.data.ori_poem[i].substring(j, j + 1));
+      }
+    }
+    // 设置样式
+    for ( var i = 0; i < 4; i++) {
+      self.data.poem_class.push([]);
+      for (var j = 0; j < self.data.poem_row_num; j++) {
+        self.data.poem_class[i].push(0);
+      }
+    }
+    console.log(self.data.poem[round_date])
+    console.log(self.data.poem_class)
+    self.setData({
+      poem_sentences:self.data.poem[round_date],
+      poem_class: self.data.poem_class
+    })
+    // 设置动态变化
+    var turn = function (i,j) {
+      setTimeout(function () {
+        self.data.poem_class[i][j] = 1;
+        self.setData({
+          poem_class: self.data.poem_class
+        })
+      }, 200 * (i * self.data.poem_row_num + j))
+    }
+    var addClass = function (){
+      for(var i = 0; i< 4; i++) {
+        for (var j = 0; j < self.data.poem_row_num; j++) {
+          turn(i, j)
+        }
+      }
+    }
+    addClass()
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '九九消寒图',
+      desc: '数着日子过冬天~',
+      path: 'pages/index/index'
+    }
   }
 })
