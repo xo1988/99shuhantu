@@ -87,7 +87,7 @@ Page({
     return {
       title: '九九消寒图',
       desc: '数着日子过冬天~',
-      path: 'pages/index/index'
+      path: 'pages/content/content'
     }
   }
 })
